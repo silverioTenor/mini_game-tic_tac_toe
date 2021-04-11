@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface CellProps {
+  colorPlayer: string;
+}
 
 export const Container = styled.div`
   width: 100%;
@@ -12,7 +16,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(3, 1fr);
 `;
 
-export const Cell = styled.div`
+export const Cell = styled.div<CellProps>`
   height: 161.33px;
   margin: 2px;
 
@@ -26,6 +30,16 @@ export const Cell = styled.div`
 
   cursor: pointer;
   transition: all 0.2s;
+   
+  ${props => props.colorPlayer === 'X' && css`
+    background: #cc2929;
+    cursor: not-allowed;
+  `}
+  
+  ${props => props.colorPlayer === 'O' && css`
+    background: #2975cc;
+    cursor: not-allowed;
+  `}
 
   &:hover {
     transform: translateY(-5%);
