@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface CellProps {
   colorPlayer: string;
+  winner: boolean;
 }
 
 export const Container = styled.div`
@@ -38,6 +39,10 @@ export const Cell = styled.div<CellProps>`
   
   ${props => props.colorPlayer === 'O' && css`
     background: #2975cc;
+    cursor: not-allowed;
+  `}
+
+  ${props => props.winner && css`
     cursor: not-allowed;
   `}
 
