@@ -52,6 +52,7 @@ const DashBoard: React.FC = () => {
   useEffect(checkWinner, [board]);
 
   const resetGame = () => {
+    setCurrentPlayer(winner !== '' ? winner : currentPlayer);
     setBoard(emptyBoard);
     setWinner('');
     setWrong('');
